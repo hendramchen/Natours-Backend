@@ -4,6 +4,11 @@ const tourController = require('../controllers/tourController');
 const router = express.Router();
 
 // router.param('id', tourController.checkID);
+// this route is to simplify url api/v1/tours?sort=-ratingsAverage,price&limit=5
+// to be api/v1/tours/top-5-cheap
+router
+  .route('/top-5-cheap')
+  .get(tourController.aliasTopTours, tourController.getAllTours);
 
 router
   .route('/')
