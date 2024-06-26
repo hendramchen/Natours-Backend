@@ -1,8 +1,19 @@
 const express = require('express');
 const tourController = require('../controllers/tourController');
 const authController = require('../controllers/authController');
+const reviewRouter = require('./reviewRoutes');
+// const reviewController = require('../controllers/reviewController');
 
 const router = express.Router();
+
+// router
+//   .route('/:tourId/reviews')
+//   .post(
+//     authController.protect,
+//     authController.restrictTo('user'),
+//     reviewController.createReview,
+//   );
+router.use('/:tourId/reviews', reviewRouter);
 
 // router.param('id', tourController.checkID);
 // this route is to simplify url api/v1/tours?sort=-ratingsAverage,price&limit=5
