@@ -33,7 +33,7 @@ const reviewSchema = new mongoose.Schema(
     toObject: { virtuals: true },
   },
 );
-
+// it means, user can not write multiple user for one tour
 reviewSchema.index({ tour: 1, user: 1 }, { unique: true });
 
 reviewSchema.pre(/^find/, function (next) {
